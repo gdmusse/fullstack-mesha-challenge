@@ -49,8 +49,6 @@ export class CollaboratorDatabase extends BaseDatabase {
           `${this.collaboratorsKnowledgesTable}.collaborator_id`
         )
         .orderBy(`name`);
-
-      console.log("collaborators", collaborators);
       return collaborators;
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);

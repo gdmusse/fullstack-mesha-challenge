@@ -44,8 +44,6 @@ export class CollaboratorBusiness {
         phone: collaborator.phone,
       };
 
-      console.log("colab", collaborator);
-
       stringToKnowledge(collaborator.knowledge_1);
       collaborator.knowledge_2 !== undefined
         ? stringToKnowledge(collaborator.knowledge_2)
@@ -59,8 +57,6 @@ export class CollaboratorBusiness {
         second: collaborator.knowledge_2,
         third: collaborator.knowledge_3,
       };
-
-      console.log("knowledges", knowledges);
 
       await this.collaboratorDatabase.registerCollaborator(
         collaboratorOutput,

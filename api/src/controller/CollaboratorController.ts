@@ -17,11 +17,11 @@ export class CollaboratorController {
 
       await collaboratorBusiness.registerCollaborator(input);
 
-      const message = "User registered successfully.";
+      const message = "Colaborador registrado.";
       res.status(200).send({ message });
     } catch (error) {
       if (error.message.includes("for key 'mangarosa_collaborators.cpf'")) {
-        res.status(409).send({ error: "This cpf is already registered" });
+        res.status(409).send({ error: "Este CPF já está registrado" });
       } else {
         res.status(400).send({ error: error.message });
       }
@@ -45,9 +45,9 @@ export class CollaboratorController {
 
       validate === "validate"
         ? (await collaboratorBusiness.validateCollaborator(id),
-          (message = "User validated successfully."))
+          (message = "Colaborador validado."))
         : (await collaboratorBusiness.unvalidateCollaborator(id),
-          (message = "User unvalidated successfully."));
+          (message = "Colaborador não validado."));
 
       res.status(200).send({ message });
     } catch (error) {
