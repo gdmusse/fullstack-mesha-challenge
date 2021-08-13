@@ -2,9 +2,16 @@ POST http://localhost:4000/collaborator/registrar
 Content-Type: application/json
 
 {
-   "email": "gabriel@g.com",
-    "name": "Gabriel Musse",
-    "cpf": "123.456.789-99",
-    "phone":"(51) 99396-7939",
-    "knowledges": ["dasdas", "b"]
+   "email": "Gabe@g.com",
+    "name": "Gabe",
+    "cpf": "123.456.789-12",
+    "knowledge_1": "Git",
+    "knowledge_2": "React",
+    "knowledge_3": "Php"
 }
+
+###
+GET http://localhost:4000/collaborator
+
+###
+PUT http://localhost:4000/collaborator/5deda25e-64e9-45cf-8d16-912e8f7553f9/unvalidate

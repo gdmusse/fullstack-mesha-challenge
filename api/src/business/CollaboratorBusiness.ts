@@ -1,15 +1,14 @@
 import {
   CollaboratorInputDTO,
   CollaboratorOutputDTO,
+  KnowledgesOutputDTO,
+  stringToKnowledge,
 } from "../model/Collaborator";
 import collaboratorDatabase, {
   CollaboratorDatabase,
 } from "../data/CollaboratorDatabase";
 import idGenerator, { IdGenerator } from "../services/IdGenerator";
-import hashManager, { HashManager } from "../services/HashManager";
-import authenticator, { Authenticator } from "../services/Authenticator";
 import { BaseError } from "../error/BaseError";
-import { Collaborator } from "../../backup/src/model/Collaborator";
 
 export class CollaboratorBusiness {
   constructor(
@@ -27,8 +26,12 @@ export class CollaboratorBusiness {
         throw new BaseError(422, "Invalid email");
       }
 
-      if (collaborator.knowledges.length < 1) {
-        throw new BaseError(422, "Input at least one knowledge");
+      if (
+        !collaborator.knowledge_1 &&
+        !collaborator.knowledge_2 &&
+        !collaborator.knowledge_3
+      ) {
+        throw new BaseError(422, "Input at least 1 knowledge");
       }
 
       const id = this.idGenerator.generate();
@@ -41,10 +44,52 @@ export class CollaboratorBusiness {
         phone: collaborator.phone,
       };
 
+      console.log("colab", collaborator);
+
+      stringToKnowledge(collaborator.knowledge_1);
+      collaborator.knowledge_2 !== undefined
+        ? stringToKnowledge(collaborator.knowledge_2)
+        : null;
+      collaborator.knowledge_3 !== undefined
+        ? stringToKnowledge(collaborator.knowledge_3)
+        : null;
+
+      const knowledges: KnowledgesOutputDTO = {
+        first: collaborator.knowledge_1,
+        second: collaborator.knowledge_2,
+        third: collaborator.knowledge_3,
+      };
+
+      console.log("knowledges", knowledges);
+
       await this.collaboratorDatabase.registerCollaborator(
         collaboratorOutput,
-        collaborator.knowledges
+        knowledges
       );
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
+  public async getAllCollaborators() {
+    try {
+      return await this.collaboratorDatabase.getAllCollaborators();
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
+  public async validateCollaborator(id: string) {
+    try {
+      return await this.collaboratorDatabase.validateCollaborator(id);
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
+  public async unvalidateCollaborator(id: string) {
+    try {
+      return await this.collaboratorDatabase.unvalidateCollaborator(id);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }

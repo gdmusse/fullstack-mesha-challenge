@@ -4,7 +4,9 @@ export class Collaborator {
     private name: string,
     private email: string,
     private cpf: string,
-    private knowledges: Array<string>,
+    private knowledge_1: Knowledge,
+    private knowledge_2: Knowledge,
+    private knowledge_3: Knowledge,
     private phone?: string
   ) {}
 
@@ -24,8 +26,16 @@ export class Collaborator {
     return this.cpf;
   }
 
-  getKnowledges() {
-    return this.knowledges;
+  getKnowledge_1() {
+    return this.knowledge_1;
+  }
+
+  getKnowledge_2() {
+    return this.knowledge_2;
+  }
+
+  getKnowledge_3() {
+    return this.knowledge_3;
   }
 
   getPhone() {
@@ -48,8 +58,16 @@ export class Collaborator {
     this.cpf = cpf;
   }
 
-  setKnowledges(knowledges: Array<string>) {
-    this.knowledges = knowledges;
+  setKnowledge1(knowledge_1: Knowledge) {
+    this.knowledge_1 = knowledge_1;
+  }
+
+  setKnowledge2(knowledge_2: Knowledge) {
+    this.knowledge_2 = knowledge_2;
+  }
+
+  setKnowledge3(knowledge_3: Knowledge) {
+    this.knowledge_3 = knowledge_3;
   }
 
   setPhone(phone: string) {
@@ -67,12 +85,35 @@ export enum Knowledge {
   TYPESCRIPT = "TypeScript",
 }
 
+export const stringToKnowledge = (input: string): Knowledge => {
+  switch (input) {
+    case "Git":
+      return Knowledge.GIT;
+    case "React":
+      return Knowledge.REACT;
+    case "Php":
+      return Knowledge.PHP;
+    case "NodeJS":
+      return Knowledge.NODEJS;
+    case "DevOps":
+      return Knowledge.DEVOPS;
+    case "Banco de Dados":
+      return Knowledge.BANCODEDADOS;
+    case "TypeScript":
+      return Knowledge.TYPESCRIPT;
+    default:
+      throw new Error("Invalid knowledge");
+  }
+};
+
 export interface CollaboratorInputDTO {
   name: string;
   email: string;
   cpf: string;
   phone?: string;
-  knowledges: Array<Knowledge>;
+  knowledge_1: Knowledge;
+  knowledge_2: Knowledge;
+  knowledge_3: Knowledge;
 }
 
 export interface CollaboratorOutputDTO {
@@ -81,4 +122,10 @@ export interface CollaboratorOutputDTO {
   email: string;
   cpf: string;
   phone?: string;
+}
+
+export interface KnowledgesOutputDTO {
+  first: Knowledge;
+  second: Knowledge;
+  third: Knowledge;
 }

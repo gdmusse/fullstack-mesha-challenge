@@ -1,2 +1,0 @@
-# labephoto-back-end
-
