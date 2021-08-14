@@ -1,39 +1,29 @@
-# ⌛️ API Node - Warren Code Challenge
+# ⌛️ Web React - FullStack Mesha Technology Challenge
 
-<br>
-
-----
-
-<br>
 
 ## 🚀 Challenge
-Create an SPA where users can check their statement and make new transactions such as deposits, payments and withdrawls
+Criar uma site de cadastro de colaboradores e funções de administrador.
 
 ## 👨🏽‍💻 Tech Stack
-- Node.js
-- Typescript
-- Express
-- Jest
-- Docker
-- Mongoose
-- MongoDB
 - React
 - Javascript
 
 ## 📝 Functional Requirements
-- Get user statement
-- Make a deposit
-- Make a payment
-- Make a withdrawl
-
-- `TODO` Add transactions filter
-- `TODO` Add pagination (backend ready)
+- Registrar colaborador
+- Verificar colaboradores
+- Ver informações do colaborador
+- Validar ou não o colaborador
+- Pesquisar infos especificas de todos colaboradores
 
 ## 🚙 How to run this application
 
-1. `git clone` to download the repository;
-2. `npm install` to install the dependencies;
-3. `cd web && npm run start` to run the project locally at port `3030`;
+1. `git clone` para baixar o repositório;
+2. `npm install && npm run start` para instalar as dependências e rodar na porta 3000.;
+
+
+## 🛒 URL Colaboradores: http://localhost:3000/registrar para registro de novos colaboradores. 
+## 🛒 URL Admin: http://localhost:3000/registros para ir a página de administrador.
+
 
 ## 🖼️ Preview
 
