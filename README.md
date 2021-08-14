@@ -2,7 +2,6 @@
 
 Verificar cada pasta (web/api) "Read Me" para mais especificações técnicas. 
 
-<br>
 
 ## 🚀 Challenge
 Criar uma aplicação Fullstack de cadastro de colaboradores e funções de administrador.
