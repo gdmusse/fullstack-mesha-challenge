@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:4000/collaborator
+GET http://localhost:4000/collaborator/63a8f947-f684-4678-a296-76f43865b825
 
 ###
-PUT http://localhost:4000/collaborator/5deda25e-64e9-45cf-8d16-912e8f7553f9/unvalidate
+PUT http://localhost:4000/collaborator/63a8f947-f684-4678-a296-76f43865b825/unvalidate

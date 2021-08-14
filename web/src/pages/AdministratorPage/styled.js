@@ -8,32 +8,13 @@ export const ScreenContainer = styled.div`
   margin-top: 5vh;
 `;
 
-export const InputsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  max-width: 450px;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-export const SignUpFormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  max-width: 450px;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-export const SignUpButtonContainer = styled.div`
-  width: 80vw;
-  max-width: 450px;
-`;
-
 export const LogoImage = styled.img`
   width: 70vw;
   max-width: 350px;
-  margin-bottom: 20px;
   transform: translateZ(0);
+`;
+
+export const SearchDiv = styled.div`
+  margin-bottom: 25px;
+  width: 600px;
 `;

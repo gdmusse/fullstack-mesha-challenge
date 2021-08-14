@@ -46,37 +46,41 @@ const TransitionsModal = () => {
     setModalInfo,
     modalInfo,
     loadingModal,
-    setLoadingModal,
     setAlertMsg,
     setAlertSeverity,
     setOpenAlert,
-    collectionInput,
   } = useContext(GlobalStateContext);
 
-  const [photo, setPhoto] = useState({});
-  const [photoDate, setPhotoDate] = useState("");
+  const [collaborator, setCollaborator] = useState({});
 
   const handleClose = () => {
     setModalInfo("");
-    setPhoto({});
-    setPhotoDate("");
+    setCollaborator({});
     setOpenModal(false);
   };
 
-  const getPhotoById = async (id) => {
+  const getCollaboratorById = async (id) => {
     if (id) {
-      setLoadingModal(true);
+      try {
+        await axios.get(`${BASE_URL}/collaborator/${id}`).then((res) => {
+          setCollaborator(res.data.collaborator[0]);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  };
+
+  const validateCollaborator = async (id) => {
+    if (id) {
       try {
         await axios
-          .get(`${BASE_URL}/photo/${id}`, {
-            headers: {
-              Authorization: localStorage.getItem("token"),
-            },
-          })
+          .put(`${BASE_URL}/collaborator/${id}/validate`)
           .then((res) => {
-            setPhoto(res.data.photo);
-            setPhotoDate(dayjs(photo.date).format("DD/MM/YYYY HH:mm"));
-            setLoadingModal(false);
+            getCollaboratorById(id);
+            setAlertMsg("Colaborador validado com sucesso.");
+            setAlertSeverity("success");
+            setOpenAlert(true);
           });
       } catch (err) {
         console.log(err);
@@ -84,54 +88,43 @@ const TransitionsModal = () => {
     }
   };
 
-  const addPhotoToCollection = async (photo_id, collection_id) => {
-    if (photo_id) {
-      setLoadingModal(true);
+  const unvalidateCollaborator = async (id) => {
+    if (id) {
       try {
-        const body = {
-          collection_id: `${collection_id}`,
-        };
         await axios
-          .post(`${BASE_URL}/photo/${photo_id}`, body, {
-            headers: {
-              Authorization: localStorage.getItem("token"),
-            },
-          })
+          .put(`${BASE_URL}/collaborator/${id}/unvalidate`)
           .then((res) => {
-            setLoadingModal(false);
-            setAlertMsg("Photo added to collection");
+            getCollaboratorById(id);
+            setAlertMsg("Colaborador não validado com sucesso.");
             setAlertSeverity("success");
             setOpenAlert(true);
-
-            setOpenModal(false);
-            setModalInfo("");
-            setPhoto({});
-            setPhotoDate("");
           });
       } catch (err) {
-        setAlertMsg(err.response.data.error);
-        setAlertSeverity("error");
-        setOpenAlert(true);
-        setLoadingModal(false);
+        console.log(err);
       }
     }
   };
 
   useEffect(() => {
-    getPhotoById(modalInfo);
-  }, [modalInfo, photoDate]);
+    getCollaboratorById(modalInfo);
+  }, [modalInfo]);
 
   const body = (
     <div className={classes.paper}>
       <ModalCard
-        key={photo.id}
-        subtitle={photo.subtitle}
-        image={photo.file}
-        author={photo.author}
-        createdAt={photoDate}
-        tags={photo.tags}
-        collections={photo.collections}
-        onClick={() => addPhotoToCollection(photo.id, collectionInput)}
+        key={collaborator.id}
+        id={collaborator.id}
+        name={collaborator.name}
+        email={collaborator.email}
+        cpf={collaborator.cpf}
+        phone={collaborator.phone}
+        validated={collaborator.validated}
+        date={dayjs(collaborator.date).format("DD/MM/YYYY HH:mm")}
+        knowledge_1={collaborator.knowledge_1}
+        knowledge_2={collaborator.knowledge_3}
+        knowledge_3={collaborator.knowledge_3}
+        onClickValidate={() => validateCollaborator(collaborator.id)}
+        onClickUnvalidate={() => unvalidateCollaborator(collaborator.id)}
       ></ModalCard>
     </div>
   );

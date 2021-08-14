@@ -55,6 +55,29 @@ export class CollaboratorDatabase extends BaseDatabase {
     }
   }
 
+  public async getCollaboratorById(id: string): Promise<Array<Collaborator>> {
+    try {
+      const collaborator = await this.getConnection()
+        .select(
+          `${this.collaboratorsTable}.*`,
+          `${this.collaboratorsKnowledgesTable}.knowledge_1`,
+          `${this.collaboratorsKnowledgesTable}.knowledge_2`,
+          `${this.collaboratorsKnowledgesTable}.knowledge_3`
+        )
+        .from(this.collaboratorsTable)
+        .join(
+          `${this.collaboratorsKnowledgesTable}`,
+          `${this.collaboratorsTable}.id `,
+          `=`,
+          `${this.collaboratorsKnowledgesTable}.collaborator_id`
+        )
+        .where({ id });
+      return collaborator;
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
   public async validateCollaborator(id: string): Promise<void> {
     try {
       await this.getConnection()

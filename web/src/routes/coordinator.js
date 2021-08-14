@@ -27,7 +27,7 @@ export const goToCollectionsPage = (history) => {
 };
 
 export const goToCollectionDetailsPage = (history, id) => {
-  history.push(`/collection/${id}`);
+  history.push(`/collaborator/${id}`);
 };
 
 export const goToSearchPage = (history, search) => {
