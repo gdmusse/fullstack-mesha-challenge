@@ -1,4 +1,4 @@
-# ⌛️ API Node - Warren Code Challenge
+# ⌛️ API Node - FullStack Mesha Technology Challenge
 
 <br>
 
@@ -7,82 +7,76 @@
 <br>
 
 ## 🚀 Challenge
-Create an API that process deposits, payments and withdrawls
+Criar de uma API de cadastro de colaboradores e funções de administrador.
 
 ## 👨🏽‍💻 Tech Stack
 - Node.js
 - Typescript
 - Express
-- Jest
-- Docker
-- Mongoose
-- MongoDB
-- React
-- Javascript
+- MySQL
 
-## 📝 Functional Requirements
-- Get user statement
-- Make a deposit
-- Make a payment
-- Make a withdrawl
+## 📝 Requisitos Funcionais
+- Registrar colaborador
+- Verificar colaboradores
+- Ver informações do colaborador
+- Validar ou não o colaborador
 
-- `TODO` Monetize the balance
-- `TODO` Add transactions seed
+## 🚙 Como rodar essa aplicação
+1. `git clone` para baixar o repositório;
+2. `npm install && npm run start` para instalar as dependências e rodar.;
+3. ` .env ` adicionar arquivo .env conforme o arquivo exemplo;
 
-## 🚙 How to run this application
+```
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE_NAME=
+```
 
-1. `git clone` to download the repository;
-2. `npm install` to install the dependencies;
-3. `migrate:up` to seed the Docker database; 
-3. `cd api && npm run start` to run the project locally;
-4. `cd api && docker-compose build --no-cache && docker-compose up -d --force-recreate` to run in Docker
+4. Criar tabelas conforme o arquivo 'tables.sql'.
 
 ## 🛤 Endpoints
 
-### 🛒 Base URL: If the backend is running locally, the base url is: http://localhost:3000/, else it's http://localhost/ .
+### 🛒 Base URL: http://localhost:4000/
 
 ### 🔐 Routes
 
 <br>
 
-**`GET /users/all`** This endpoint returns a list the users registered
-<br>
-**`GET /users/{id}`** This endpoint returns the details of a given user from it's `id`
-<br>
-**`POST /users/signup`** This endpoint registers an user
-
-The body of the resquest must be:
-
+**`POST /collaborator/registrar `** Endpoint cadastra um colaborador.
+Body(email, name, cpf, knowledge_1 are required) :
 ```
 {
-    "email": "warren@mail.com",
-    "password": "123456",
-    "name": "Warren"
-}
 
+    "email": "example@g.com",
+    "name": "Example", 
+    "cpf": "123.456.789-99", 
+    "phone": "(51) 99999-9999",
+    "knowledge_1": "Git", 
+    "knowledge_2": "React", 
+    "knowledge_3": "Php"
+
+}
 ```
 <br>
 
-**`POST /wallet` ** This is a generic endpoint to handle the user transactions. The transaction `category` must be `deposit`, `payment` or `withdrawl`.
+**`GET /collaborator`** Endpoint retorna todos colaboradores cadastrados.
+<br>
 
-```
-{
-    "user_id": "602c982bba4ca81124ae0b2b",
-    "category": "payment",
-    "amount": 100
-}
-
-```
-
+**`GET /collaborator/:id`** Endpoint retorna o colaborador com o id especificado.
 
 <br>
 
-**`GET /wallet/{id}`** This endpoint returns the user statement from it's `id`. Also it must be provided the _query parameters_ `limit`,`skip` and `order_by` for the pagination.  
+**`PUT /collaborator/:id/validate` ** Endpoint valida o colaborador com o id especificado.
 
+<br>
+
+**`PUT /collaborator/:id/unvalidate` ** Endpoint não valida o colaborador com o id especificado.
 
 #### 👋🏽 How to reach me
 
-Lourenço Passos | Fullstack Software Engineer | lo.passos93@gmail.com | 55-51-996106010
+Gabriel Musse | Developer FullStack | gdmusse@hotmail.com | +55-51-993967939
+
 
 
 
