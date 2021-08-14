@@ -7,7 +7,7 @@
 <br>
 
 ## 🚀 Challenge
-Criar de uma API de cadastro de colaboradores e funções de administrador.
+Criar uma API de cadastro de colaboradores e funções de administrador.
 
 ## 👨🏽‍💻 Tech Stack
 - Node.js
