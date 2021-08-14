@@ -45,7 +45,7 @@ DB_DATABASE_NAME=
 
 `POST /collaborator/registrar` Endpoint cadastra um colaborador.
 
-Body(email, name, cpf, knowledge_1 are required) :
+Body(email, name, cpf, knowledge_1 são obrigatórios) :
 ```
 {
 
