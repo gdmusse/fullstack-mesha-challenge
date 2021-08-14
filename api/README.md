@@ -1,11 +1,5 @@
 # ⌛️ API Node - FullStack Mesha Technology Challenge
 
-<br>
-
-----
-
-<br>
-
 ## 🚀 Challenge
 Criar uma API de cadastro de colaboradores e funções de administrador.
 
