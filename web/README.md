@@ -27,9 +27,9 @@ Criar uma site de cadastro de colaboradores e funções de administrador.
 
 ## 🖼️ Preview
 
-![Página de registrar]![image](https://user-images.githubusercontent.com/60359003/129430230-4e53c8de-6999-4bc6-b91f-f3f669024ff8.png)
+![Página de registrar](https://user-images.githubusercontent.com/60359003/129430230-4e53c8de-6999-4bc6-b91f-f3f669024ff8.png)
 
-![Página de adm]![image](https://user-images.githubusercontent.com/60359003/129430251-43a4524c-6a85-435f-acf2-152236c3c8ae.png)
+![Página de adm](https://user-images.githubusercontent.com/60359003/129430251-43a4524c-6a85-435f-acf2-152236c3c8ae.png)
 
 ![image](https://user-images.githubusercontent.com/60359003/129430254-b3b9ac6c-3aef-4d69-89a9-fd6773222b17.png)
 
