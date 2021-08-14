@@ -7,7 +7,7 @@
 <br>
 
 ## 🚀 Challenge
-Create an SPA where users can check their statement and make new transactions such as deposits, payments and withdrawls
+Create an API that process deposits, payments and withdrawls
 
 ## 👨🏽‍💻 Tech Stack
 - Node.js
@@ -26,19 +26,58 @@ Create an SPA where users can check their statement and make new transactions su
 - Make a payment
 - Make a withdrawl
 
-- `TODO` Add transactions filter
-- `TODO` Add pagination (backend ready)
+- `TODO` Monetize the balance
+- `TODO` Add transactions seed
 
 ## 🚙 How to run this application
 
 1. `git clone` to download the repository;
 2. `npm install` to install the dependencies;
-3. `cd web && npm run start` to run the project locally at port `3030`;
+3. `migrate:up` to seed the Docker database; 
+3. `cd api && npm run start` to run the project locally;
+4. `cd api && docker-compose build --no-cache && docker-compose up -d --force-recreate` to run in Docker
 
-## 🖼️ Preview
+## 🛤 Endpoints
 
-![Dashboard](https://i.imgur.com/FkIPpjw.png)
-![Transaction Modal](https://i.imgur.com/Pg8gJ8D.png)
+### 🛒 Base URL: If the backend is running locally, the base url is: http://localhost:3000/, else it's http://localhost/ .
+
+### 🔐 Routes
+
+<br>
+
+**`GET /users/all`** This endpoint returns a list the users registered
+<br>
+**`GET /users/{id}`** This endpoint returns the details of a given user from it's `id`
+<br>
+**`POST /users/signup`** This endpoint registers an user
+
+The body of the resquest must be:
+
+```
+{
+    "email": "warren@mail.com",
+    "password": "123456",
+    "name": "Warren"
+}
+
+```
+<br>
+
+**`POST /wallet` ** This is a generic endpoint to handle the user transactions. The transaction `category` must be `deposit`, `payment` or `withdrawl`.
+
+```
+{
+    "user_id": "602c982bba4ca81124ae0b2b",
+    "category": "payment",
+    "amount": 100
+}
+
+```
+
+
+<br>
+
+**`GET /wallet/{id}`** This endpoint returns the user statement from it's `id`. Also it must be provided the _query parameters_ `limit`,`skip` and `order_by` for the pagination.  
 
 
 #### 👋🏽 How to reach me
