@@ -75,6 +75,14 @@ export class CollaboratorBusiness {
     }
   }
 
+  public async getCollaboratorById(id: string) {
+    try {
+      return await this.collaboratorDatabase.getCollaboratorById(id);
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
   public async validateCollaborator(id: string) {
     try {
       return await this.collaboratorDatabase.validateCollaborator(id);

@@ -37,6 +37,16 @@ export class CollaboratorController {
     }
   }
 
+  async getById(req: Request, res: Response) {
+    try {
+      const id = req.params.id;
+      const collaborator = await collaboratorBusiness.getCollaboratorById(id);
+      res.status(200).send({ collaborator });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  }
+
   async validateOrNot(req: Request, res: Response) {
     try {
       const validate = req.params.validate;
