@@ -64,11 +64,9 @@ Body(email, name, cpf, knowledge_1 are required) :
 <br>
 
 `GET /collaborator/:id` Endpoint retorna o colaborador com o id especificado.
-
 <br>
 
 `PUT /collaborator/:id/validate`  Endpoint valida o colaborador com o id especificado.
-
 <br>
 
 `PUT /collaborator/:id/unvalidate` Endpoint não valida o colaborador com o id especificado.
