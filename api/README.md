@@ -43,7 +43,7 @@ DB_DATABASE_NAME=
 
 <br>
 
-**`POST /collaborator/registrar `** Endpoint cadastra um colaborador.
+`POST /collaborator/registrar ` Endpoint cadastra um colaborador.
 Body(email, name, cpf, knowledge_1 are required) :
 ```
 {
@@ -60,18 +60,18 @@ Body(email, name, cpf, knowledge_1 are required) :
 ```
 <br>
 
-**`GET /collaborator`** Endpoint retorna todos colaboradores cadastrados.
+`GET /collaborator` Endpoint retorna todos colaboradores cadastrados.
 <br>
 
-**`GET /collaborator/:id`** Endpoint retorna o colaborador com o id especificado.
-
-<br>
-
-**`PUT /collaborator/:id/validate` ** Endpoint valida o colaborador com o id especificado.
+`GET /collaborator/:id` Endpoint retorna o colaborador com o id especificado.
 
 <br>
 
-**`PUT /collaborator/:id/unvalidate` ** Endpoint não valida o colaborador com o id especificado.
+`PUT /collaborator/:id/validate`  Endpoint valida o colaborador com o id especificado.
+
+<br>
+
+`PUT /collaborator/:id/unvalidate` Endpoint não valida o colaborador com o id especificado.
 
 #### 👋🏽 How to reach me
 
