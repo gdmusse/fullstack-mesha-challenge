@@ -13,7 +13,6 @@ const Router = () => {
         <Route exact path="/registros">
           <AdministratorPage />
         </Route>
-
       </Switch>
     </BrowserRouter>
   );
