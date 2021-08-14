@@ -32,7 +32,14 @@ Criar uma aplicação Fullstack de cadastro de colaboradores e funções de admi
 1. `git clone` para baixar o repositório;
 2. `cd api && npm install && npm run start` para instalar as dependências do back-end e rodá-lo.;
 3. ` .env ` adicionar arquivo .env conforme o arquivo exemplo;
-4. `cd .. && cd web && npm install && npm run start` para instalar as dependências do front-end e rodá-lo.;
+ ```
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE_NAME=
+```
+
+5. `cd .. && cd web && npm install && npm run start` para instalar as dependências do front-end e rodá-lo.;
 
 
 #### 👋🏽 Contato
